@@ -4,27 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Intervention\Image\Filters\DemoFilter;
 
 class TestController extends Controller
 {
     public function test(){
+        # ----------- 修改已经存在的图片
+        # 获取到图片
         $images = url('img/avatar.jpg');
-        $username = '盖';
-        putenv('GDFONTPATH=' . realpath('.'));
-        $shuiyin = url('img/strawberry.png');
-        $shuiyin = Image::make($shuiyin)->resize(50,50)->opacity(80);
+        $username = '一只小盖'; # 设置插入文本的内容
+        putenv('GDFONTPATH=' . realpath('.')); # 可以省略字体路径的.ttf
+
+        # 获取到要插入的图片
+        $strawberry = url('img/strawberry.png');
+
+        # 修改图片的大小及透明度
+        $strawberry = Image::make($strawberry)->resize(50,50)->opacity(80);
+
         $img = Image::make($images)
-            ->resize(500,500)
-            ->text($username , 75,30 ,function($draw){
+            ->resize(500,500) # 重新设置大小
+            ->text($username , 475,445 ,function($draw){ # 插入文本
                 $draw->file('font/FZKTJW'); # 字体
-                $draw->size(40); # 大小
-                $draw->color('#FFFFFF'); # 颜色
+                $draw->size(30); # 大小
+                $draw->color('#46cdcf'); # 颜色
                 $draw->align('right'); # 位置
                 $draw->valign('top'); # 位置
             })
-//            ->filter(new DemoFilter(1)) # 加滤镜
-            ->insert($shuiyin,'bottom-right',70,15);
-        $img->save('../public/img/g.png');
+            ->filter(new DemoFilter(1)) # 加滤镜
+            ->insert($strawberry,'bottom-right',150,15); # 插入图片
+        $img->save('../public/img/new.png'); # 保存为一张新的图片
+
+
+        # ----------- 新建图片
+        Image::canvas('300','200','#FFFFFF')
+            ->text('new Image','150','100',function ($draw){
+                $draw->size(50);
+                $draw->color('#46cdcf');
+            })->save('../public/img/new1.jpg');
         return 'success';
     }
 }
