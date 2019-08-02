@@ -43,4 +43,8 @@ class TestController extends Controller
             })->save('../public/img/new1.jpg');
         return 'success';
     }
+
+    public function test2(){
+        return view('test.test2');
+    }
 }
