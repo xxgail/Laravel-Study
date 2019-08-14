@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Intervention\Image\Filters\DemoFilter;
@@ -46,5 +47,11 @@ class TestController extends Controller
 
     public function test2(){
         return view('test.test2');
+    }
+
+    public function student(){
+        $data = Student::query()->first();
+
+        return $data;
     }
 }
