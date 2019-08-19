@@ -1,5 +1,6 @@
 <?php
 
+use \Illuminate\Support\Facades\App;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +19,11 @@ Route::get('/', function () {
 Route::any('/test','TestController@test');
 
 Route::any('/test2','TestController@test2');
+
+
+Route::any('/test3/{locale}','TestController@test3');
+
+Route::get('/welcome/{locale}', function ($locale) {
+    App::setLocale($locale);
+    echo trans('message.welcome');
+});

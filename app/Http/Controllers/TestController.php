@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Intervention\Image\Facades\Image;
 use Intervention\Image\Filters\DemoFilter;
 
@@ -46,5 +47,18 @@ class TestController extends Controller
 
     public function test2(){
         return view('test.test2');
+    }
+
+    /**
+     * @Time: 2019/8/19 14:54
+     * @DESC: 可以修改网页的语言
+     * @param $locale
+     */
+    public function test3($locale = 'zh'){
+//        return APP::getLocale();
+        App::setLocale($locale);
+//        echo trans('message.welcome',['name' => '11']);
+        $name = 'someone';
+        return view('test.test3',compact('name'));
     }
 }
