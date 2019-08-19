@@ -29,3 +29,10 @@ Route::get('/welcome/{locale}', function ($locale) {
 });
 
 Route::any('/student','TestController@student');
+
+Route::group([
+    'namespace' => 'Home',
+    'prefix' => 'home',
+], function(\Illuminate\Routing\Router $router){
+   $router->any('language','LangController@language')->name('home.language');
+});
