@@ -27,3 +27,5 @@ Route::get('/welcome/{locale}', function ($locale) {
     App::setLocale($locale);
     echo trans('message.welcome');
 });
+
+Route::any('/student','TestController@student');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Intervention\Image\Facades\Image;
@@ -60,5 +61,12 @@ class TestController extends Controller
 //        echo trans('message.welcome',['name' => '11']);
         $name = 'someone';
         return view('test.test3',compact('name'));
+    }
+
+
+    public function student(){
+        $data = Student::query()->first();
+
+        return $data;
     }
 }
