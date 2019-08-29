@@ -1,6 +1,6 @@
 <html>
 <head>
-
+    <title>xxxxx</title>
 </head>
 <body>
 
@@ -31,6 +31,9 @@
                 }
             }
         );
+    });
+    document.addEventListener('visibilitychange',function () {
+        document.title = document.hidden ? '快回来！' : 'xxxxx';
     });
 </script>
 
