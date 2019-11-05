@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Traits\HasRoles;
 
-class Student extends Model
+class Permissions extends Model
 {
     use HasRoles;
 
-    protected $guarded = 'admin';
-
     use SoftDeletes;
 
-    public $table = 'student';
+    public $table = 'permissions';
 
     protected $primaryKey = 'id';
+
+    public $fillable = [
+        'name','guard_name',
+    ];
 }

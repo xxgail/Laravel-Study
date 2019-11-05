@@ -36,3 +36,10 @@ Route::group([
 ], function(\Illuminate\Routing\Router $router){
    $router->any('language','LangController@language')->name('home.language');
 });
+
+Route::group([
+    'namespace' => 'Home',
+    'prefix' => 'home',
+],function (\Illuminate\Routing\Router $router){
+    $router->any('add','UserController@add');
+});
