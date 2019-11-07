@@ -38,8 +38,35 @@ Route::group([
 });
 
 Route::group([
-    'namespace' => 'Home',
-    'prefix' => 'home',
+    'namespace' => 'Admin',
+    'prefix' => 'user',
 ],function (\Illuminate\Routing\Router $router){
+    $router->any('list','UserController@list');
     $router->any('add','UserController@add');
+});
+
+
+Route::group([
+    'namespace' => 'Admin',
+    'prefix' => 'role',
+],function (\Illuminate\Routing\Router $router){
+    $router->any('list','RoleController@list');
+    $router->any('add','RoleController@add');
+});
+
+Route::group([
+    'namespace' => 'Admin',
+    'prefix' => 'permission',
+],function (\Illuminate\Routing\Router $router){
+    $router->any('list','PermissionController@list');
+    $router->any('add','PermissionController@add');
+});
+
+
+Route::group([
+    'namespace' => 'Student',
+    'prefix' => 'student',
+],function (\Illuminate\Routing\Router $router){
+    $router->any('list','StudentController@list');
+    $router->any('add','StudentController@add');
 });

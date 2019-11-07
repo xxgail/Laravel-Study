@@ -26,7 +26,7 @@ class TestController extends Controller
         $img = Image::make($images)
             ->resize(500,500) # 重新设置大小
             ->text($username , 475,445 ,function($draw){ # 插入文本
-                $draw->file('font/FZKTJW'); # 字体
+                $draw->file('fonts/FZKTJW'); # 字体
                 $draw->size(30); # 大小
                 $draw->color('#46cdcf'); # 颜色
                 $draw->align('right'); # 位置
