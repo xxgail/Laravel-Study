@@ -6,7 +6,7 @@
 <div class="wrapper wrapper-content animated fadeInRight">
     <div id="toolbar" class="btn-group" style="margin-left: 1%; margin-bottom: 2%;">
         <button class="btn btn-success add" type="button" title="添加">
-            <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加角色</span>
+            <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加用户</span>
         </button>
     </div>
     <div class="row">
@@ -34,20 +34,21 @@
                         <tr>
                             <th>#</th>
                             <th>名称</th>
-                            <th>权限</th>
+                            <th>角色</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($role as $val)
+                        @foreach($user as $val)
                             <tr>
                                 <td>{{$val['id']}}</td>
                                 <td>{{$val['name']}}</td>
                                 <td>
-                                    @if($val['permission'])
-                                        @foreach($val['permission'] as $permission)
-                                            <span>{{$permission['name']}},</span>
-                                        @endforeach
-                                    @endif
+{{--                                    @if($val['permission'])--}}
+{{--                                        @foreach($val['permission'] as $permission)--}}
+{{--                                            <span>{{$permission['name']}},</span>--}}
+{{--                                        @endforeach--}}
+{{--                                    @endif--}}
+                                    {{$val['name']}}
                                 </td>
                             </tr>
                         @endforeach
@@ -63,7 +64,7 @@
 @section('script')
     <script>
         $('body').on('click', 'button.add', function() { //新增
-            var url = "{{route('role.add')}}";
+            var url = "{{route('user.add')}}";
             layer.open({
                 type: 2,
                 title: '新增数据',

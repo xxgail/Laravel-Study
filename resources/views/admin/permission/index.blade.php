@@ -3,10 +3,11 @@
 
 @section('content')
 
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div id="toolbar" class="btn-group" style="margin-left: 1%; margin-bottom: 2%;">
         <button class="btn btn-success add" type="button" title="添加">
-            <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加角色</span>
+            <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">添加权限</span>
         </button>
     </div>
     <div class="row">
@@ -34,21 +35,13 @@
                         <tr>
                             <th>#</th>
                             <th>名称</th>
-                            <th>权限</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($role as $val)
+                        @foreach($permission as $val)
                             <tr>
                                 <td>{{$val['id']}}</td>
                                 <td>{{$val['name']}}</td>
-                                <td>
-                                    @if($val['permission'])
-                                        @foreach($val['permission'] as $permission)
-                                            <span>{{$permission['name']}},</span>
-                                        @endforeach
-                                    @endif
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -60,17 +53,18 @@
     </div>
 </div>
 @stop
+
 @section('script')
     <script>
         $('body').on('click', 'button.add', function() { //新增
-            var url = "{{route('role.add')}}";
+            var url = "{{route('permission.add')}}";
             layer.open({
                 type: 2,
                 title: '新增数据',
                 shadeClose: true,
                 shade: 0.8,
                 maxmin: true,
-                area: ['90%', '90%'],
+                area: ['70%', '70%'],
                 content: url,//iframe的url
                 end: function(){
                     //console.log("2222");
@@ -80,11 +74,3 @@
         })
     </script>
 @stop
-{{--</body>--}}
-{{--<script src="../js/jquery.min.js"></script>--}}
-{{--<script src="../hadmin/js/bootstrap.min.js"></script>--}}
-{{--<script src="../hadmin/js/content.js"></script>--}}
-{{--<script src="../hadmin/js/hAdmin.js"></script>--}}
-{{--<script src="../hadmin/layer/layer.min.js"></script>--}}
-
-{{--</html>--}}

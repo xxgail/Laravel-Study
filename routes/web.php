@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::any('/test','TestController@test');
 
-Route::any('/test2','TestController@test2');
+Route::any('/test2','TestController@test2')->name('test2');
 
 
 Route::any('/test3/{locale}','TestController@test3');
@@ -41,8 +41,8 @@ Route::group([
     'namespace' => 'Admin',
     'prefix' => 'user',
 ],function (\Illuminate\Routing\Router $router){
-    $router->any('list','UserController@list');
-    $router->any('add','UserController@add');
+    $router->any('list','UserController@list')->name('user.list');
+    $router->any('add','UserController@add')->name('user.add');
 });
 
 
@@ -50,16 +50,16 @@ Route::group([
     'namespace' => 'Admin',
     'prefix' => 'role',
 ],function (\Illuminate\Routing\Router $router){
-    $router->any('list','RoleController@list');
-    $router->any('add','RoleController@add');
+    $router->any('list','RoleController@list')->name('role.list');
+    $router->any('add','RoleController@add')->name('role.add');
 });
 
 Route::group([
     'namespace' => 'Admin',
     'prefix' => 'permission',
 ],function (\Illuminate\Routing\Router $router){
-    $router->any('list','PermissionController@list');
-    $router->any('add','PermissionController@add');
+    $router->any('list','PermissionController@list')->name('permission.list');
+    $router->any('add','PermissionController@add')->name('permission.add');
 });
 
 

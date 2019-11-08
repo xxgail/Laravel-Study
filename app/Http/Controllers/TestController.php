@@ -47,7 +47,7 @@ class TestController extends Controller
     }
 
     public function test2(){
-        return view('test.test2');
+        return view('base');
     }
 
     /**
