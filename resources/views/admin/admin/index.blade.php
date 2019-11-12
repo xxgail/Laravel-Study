@@ -38,17 +38,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($user as $val)
+                        @foreach($admins as $val)
                             <tr>
                                 <td>{{$val['id']}}</td>
-                                <td>{{$val['name']}}</td>
+                                <td>{{$val['account']}}</td>
                                 <td>
 {{--                                    @if($val['permission'])--}}
 {{--                                        @foreach($val['permission'] as $permission)--}}
 {{--                                            <span>{{$permission['name']}},</span>--}}
 {{--                                        @endforeach--}}
 {{--                                    @endif--}}
-                                    {{$val['name']}}
+                                    {{$val['account']}}
                                 </td>
                             </tr>
                         @endforeach
@@ -64,7 +64,7 @@
 @section('script')
     <script>
         $('body').on('click', 'button.add', function() { //新增
-            var url = "{{route('user.add')}}";
+            var url = "{{route('admin.add')}}";
             layer.open({
                 type: 2,
                 title: '新增数据',

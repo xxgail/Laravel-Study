@@ -37,7 +37,7 @@
                     </li>
 
                     <li>
-                        <a class="J_menuItem" href="{{route('user.list')}}">
+                        <a class="J_menuItem" href="{{route('admin.list')}}">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">管理员</span>
                         </a>

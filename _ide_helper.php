@@ -1714,7 +1714,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the user resolver callback.
+         * Get the admin resolver callback.
          *
          * @return \Closure 
          * @static 
@@ -1767,7 +1767,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Create the user provider implementation for the driver.
+         * Create the admin provider implementation for the driver.
          *
          * @param string|null $provider
          * @return \Illuminate\Contracts\Auth\UserProvider|null 
@@ -1781,7 +1781,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the default user provider name.
+         * Get the default admin provider name.
          *
          * @return string 
          * @static 
@@ -1793,7 +1793,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the currently authenticated user.
+         * Get the currently authenticated admin.
          *
          * @return \App\User|null 
          * @static 
@@ -1805,7 +1805,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the ID for the currently authenticated user.
+         * Get the ID for the currently authenticated admin.
          *
          * @return int|null 
          * @static 
@@ -1817,7 +1817,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Log a user into the application without sessions or cookies.
+         * Log a admin into the application without sessions or cookies.
          *
          * @param array $credentials
          * @return bool 
@@ -1830,7 +1830,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Log the given user ID into the application without sessions or cookies.
+         * Log the given admin ID into the application without sessions or cookies.
          *
          * @param mixed $id
          * @return \App\User|false 
@@ -1843,7 +1843,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Validate a user's credentials.
+         * Validate a admin's credentials.
          *
          * @param array $credentials
          * @return bool 
@@ -1886,7 +1886,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Attempt to authenticate a user using the given credentials.
+         * Attempt to authenticate a admin using the given credentials.
          *
          * @param array $credentials
          * @param bool $remember
@@ -1900,7 +1900,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Log the given user ID into the application.
+         * Log the given admin ID into the application.
          *
          * @param mixed $id
          * @param bool $remember
@@ -1914,7 +1914,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Log a user into the application.
+         * Log a admin into the application.
          *
          * @param \Illuminate\Contracts\Auth\Authenticatable $user
          * @param bool $remember
@@ -1928,7 +1928,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Log the user out of the application.
+         * Log the admin out of the application.
          *
          * @return void 
          * @static 
@@ -1953,7 +1953,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the last user we attempted to authenticate.
+         * Get the last admin we attempted to authenticate.
          *
          * @return \App\User 
          * @static 
@@ -1989,7 +1989,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the user was authenticated via "remember me" cookie.
+         * Determine if the admin was authenticated via "remember me" cookie.
          *
          * @return bool 
          * @static 
@@ -2064,7 +2064,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Return the currently cached user.
+         * Return the currently cached admin.
          *
          * @return \App\User|null 
          * @static 
@@ -2076,7 +2076,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Set the current user.
+         * Set the current admin.
          *
          * @param \Illuminate\Contracts\Auth\Authenticatable $user
          * @return \Illuminate\Auth\SessionGuard 
@@ -2114,7 +2114,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the current user is authenticated.
+         * Determine if the current admin is authenticated.
          *
          * @return \App\User 
          * @throws \Illuminate\Auth\AuthenticationException
@@ -2127,7 +2127,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the current user is authenticated.
+         * Determine if the current admin is authenticated.
          *
          * @return bool 
          * @static 
@@ -2139,7 +2139,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the current user is a guest.
+         * Determine if the current admin is a guest.
          *
          * @return bool 
          * @static 
@@ -2151,7 +2151,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the user provider used by the guard.
+         * Get the admin provider used by the guard.
          *
          * @return \Illuminate\Contracts\Auth\UserProvider 
          * @static 
@@ -2163,7 +2163,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Set the user provider used by the guard.
+         * Set the admin provider used by the guard.
          *
          * @param \Illuminate\Contracts\Auth\UserProvider $provider
          * @return void 
@@ -5584,7 +5584,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the given ability should be granted for the current user.
+         * Determine if the given ability should be granted for the current admin.
          *
          * @param string $ability
          * @param array|mixed $arguments
@@ -5598,7 +5598,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the given ability should be denied for the current user.
+         * Determine if the given ability should be denied for the current admin.
          *
          * @param string $ability
          * @param array|mixed $arguments
@@ -5612,7 +5612,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if all of the given abilities should be granted for the current user.
+         * Determine if all of the given abilities should be granted for the current admin.
          *
          * @param \Illuminate\Auth\Access\iterable|string $abilities
          * @param array|mixed $arguments
@@ -5626,7 +5626,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if any one of the given abilities should be granted for the current user.
+         * Determine if any one of the given abilities should be granted for the current admin.
          *
          * @param \Illuminate\Auth\Access\iterable|string $abilities
          * @param array|mixed $arguments
@@ -5640,7 +5640,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Determine if the given ability should be granted for the current user.
+         * Determine if the given ability should be granted for the current admin.
          *
          * @param string $ability
          * @param array|mixed $arguments
@@ -5681,7 +5681,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get a gate instance for the given user.
+         * Get a gate instance for the given admin.
          *
          * @param \Illuminate\Contracts\Auth\Authenticatable|mixed $user
          * @return static 
@@ -7996,7 +7996,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the client user agent.
+         * Get the client admin agent.
          *
          * @return string 
          * @static 
@@ -8104,7 +8104,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the user making the request.
+         * Get the admin making the request.
          *
          * @param string|null $guard
          * @return mixed 
@@ -8156,7 +8156,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get the user resolver callback.
+         * Get the admin resolver callback.
          *
          * @return \Closure 
          * @static 
@@ -8168,7 +8168,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Set the user resolver callback.
+         * Set the admin resolver callback.
          *
          * @param \Closure $callback
          * @return \Illuminate\Http\Request 
@@ -8741,7 +8741,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Returns the user.
+         * Returns the admin.
          *
          * @return string|null 
          * @static 
@@ -8767,9 +8767,9 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Gets the user info.
+         * Gets the admin info.
          *
-         * @return string A user name and, optionally, scheme-specific information about how to gain authorization to access the server
+         * @return string A admin name and, optionally, scheme-specific information about how to gain authorization to access the server
          * @static 
          */ 
         public static function getUserInfo()
@@ -8810,7 +8810,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Gets the scheme and HTTP host.
          * 
-         * If the URL was called with basic authentication, the user
+         * If the URL was called with basic authentication, the admin
          * and the password are not added to the generated string.
          *
          * @return string The scheme and HTTP host
@@ -9047,7 +9047,7 @@ namespace Illuminate\Support\Facades {
          * 
          * Here is the process to determine the format:
          * 
-         *  * format defined by the user (with setRequestFormat())
+         *  * format defined by the admin (with setRequestFormat())
          *  * _format request attribute
          *  * $default
          *
@@ -9273,7 +9273,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Gets a list of languages acceptable by the client browser.
          *
-         * @return array Languages ordered in the user browser preferences
+         * @return array Languages ordered in the admin browser preferences
          * @static 
          */ 
         public static function getLanguages()

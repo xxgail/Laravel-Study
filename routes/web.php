@@ -39,34 +39,46 @@ Route::group([
 
 Route::group([
     'namespace' => 'Admin',
-    'prefix' => 'user',
+    'prefix' => 'login',
 ],function (\Illuminate\Routing\Router $router){
-    $router->any('list','UserController@list')->name('user.list');
-    $router->any('add','UserController@add')->name('user.add');
-});
-
-
-Route::group([
-    'namespace' => 'Admin',
-    'prefix' => 'role',
-],function (\Illuminate\Routing\Router $router){
-    $router->any('list','RoleController@list')->name('role.list');
-    $router->any('add','RoleController@add')->name('role.add');
+    $router->any('login','LoginController@login')->name('login.login');
 });
 
 Route::group([
-    'namespace' => 'Admin',
-    'prefix' => 'permission',
-],function (\Illuminate\Routing\Router $router){
-    $router->any('list','PermissionController@list')->name('permission.list');
-    $router->any('add','PermissionController@add')->name('permission.add');
-});
+    'middleware' => 'adminLoginAuth',
+],function(){
+    Route::group([
+        'namespace' => 'Admin',
+        'prefix' => 'admin',
+    ],function (\Illuminate\Routing\Router $router){
+        $router->any('list','AdminController@list')->name('admin.list');
+        $router->any('add','AdminController@add')->name('admin.add');
+    });
 
 
-Route::group([
-    'namespace' => 'Student',
-    'prefix' => 'student',
-],function (\Illuminate\Routing\Router $router){
-    $router->any('list','StudentController@list');
-    $router->any('add','StudentController@add');
+    Route::group([
+        'namespace' => 'Admin',
+        'prefix' => 'role',
+    ],function (\Illuminate\Routing\Router $router){
+        $router->any('list','RoleController@list')->name('role.list');
+        $router->any('add','RoleController@add')->name('role.add');
+    });
+
+    Route::group([
+        'namespace' => 'Admin',
+        'prefix' => 'permission',
+    ],function (\Illuminate\Routing\Router $router){
+        $router->any('list','PermissionController@list')->name('permission.list');
+        $router->any('add','PermissionController@add')->name('permission.add');
+    });
+
+
+    Route::group([
+        'namespace' => 'Student',
+        'prefix' => 'student',
+    ],function (\Illuminate\Routing\Router $router){
+        $router->any('list','StudentController@list');
+        $router->any('add','StudentController@add');
+    });
 });
+
