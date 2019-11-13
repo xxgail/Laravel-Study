@@ -8,9 +8,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Student extends Model
 {
-//    use HasRoles;
+    use HasRoles;
 
-//    protected $guarded = 'admin';
 
     use SoftDeletes;
 

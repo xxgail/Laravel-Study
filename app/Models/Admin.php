@@ -14,6 +14,8 @@ class Admin extends Model
 
     public $table = 'admin';
 
+    protected $guard_name = 'admin';
+
     protected $primaryKey = 'id';
 
     public $fillable = [

@@ -16,9 +16,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        Relation::morphMap([
-            'admin' => 'App\Model\Admin',
-        ]);
+//        Relation::morphMap([
+//            'admin' => 'App\Model\Admin',
+//            'student' => 'App\Model\Student',
+//        ]);
     }
 
     /**

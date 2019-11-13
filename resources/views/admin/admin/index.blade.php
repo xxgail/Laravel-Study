@@ -43,12 +43,11 @@
                                 <td>{{$val['id']}}</td>
                                 <td>{{$val['account']}}</td>
                                 <td>
-{{--                                    @if($val['permission'])--}}
-{{--                                        @foreach($val['permission'] as $permission)--}}
-{{--                                            <span>{{$permission['name']}},</span>--}}
-{{--                                        @endforeach--}}
-{{--                                    @endif--}}
-                                    {{$val['account']}}
+                                    @if($val['roles'])
+                                        @foreach($val['roles'] as $roles)
+                                            <span>{{$roles['name']}},</span>
+                                        @endforeach
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

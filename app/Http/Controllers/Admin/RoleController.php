@@ -46,8 +46,15 @@ class RoleController extends Controller
                     'permission_id' => $permission_id,
                 ]);
             }
+
+            return 'success';
         }
 
         return view('admin.role.add',compact('permission'));
+    }
+
+    public function edit($id){
+        $role = Roles::query()->find($id);
+        return $role;
     }
 }

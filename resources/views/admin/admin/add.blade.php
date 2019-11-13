@@ -22,35 +22,42 @@
                     {{--<form  class="form-horizontal" action="{{route('admin.platform.manager.add')}}" method="post">--}}
                     {!! Form::open(['enctype'=>'multipart/form-data','class'=>'form-horizontal']) !!}
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">角色名</label>
+                        <label class="col-sm-2 control-label">账号</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('name', '') }}">
+                            <input type="text" class="form-control" name="account" value="{{ old('account', '') }}">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">守卫名称</label>
+                        <label class="col-sm-2 control-label">邮箱</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="guard_name" value="{{ old('guard_name', '') }}">
+                            <input type="text" class="form-control" name="email" value="{{ old('email', '') }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="password" value="">
                         </div>
                     </div>
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">权限</label>
+                        <label class="col-sm-2 control-label">分配角色</label>
 
                         <div class="col-sm-10">
-                                @foreach($permission as $val)
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="permission_ids[]" type="checkbox" value="{{$val['id']}}">{{$val['name']}}</label>
-                                    </div>
-                                @endforeach
+                            @foreach($roles as $val)
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="role_ids[]" type="checkbox" value="{{$val['id']}}">{{$val['name']}}</label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">

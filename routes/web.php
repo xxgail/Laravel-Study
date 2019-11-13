@@ -62,6 +62,7 @@ Route::group([
     ],function (\Illuminate\Routing\Router $router){
         $router->any('list','RoleController@list')->name('role.list');
         $router->any('add','RoleController@add')->name('role.add');
+        $router->any('edit/{id?}','RoleController@edit')->name('role.edit');
     });
 
     Route::group([

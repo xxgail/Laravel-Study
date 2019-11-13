@@ -10,8 +10,9 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     public function list(){
-        $admins = Admin::query()->get();
-//        return $admins;
+        $admins = Admin::query()->get()->each(function ($admin){
+            $admin->getRoleNames();
+        });
 
         $admins->toArray();
 
@@ -24,7 +25,7 @@ class AdminController extends Controller
 
         if($request->post()){
 
-            $account = $request->get('name');
+            $account = $request->get('account');
 
             $password = bcrypt($request->get('guard_name'));
 
@@ -32,20 +33,28 @@ class AdminController extends Controller
 
             $role_ids = $request->get('role_ids');
 
-//            $admin = Admin::query()->create([
-//                'account' => $account,
-//                'password' => $password,
-//                'email' => $email,
-//            ]);
-            $admin = Admin::query()->find(2);
+            $admin = Admin::query()->create([
+                'account' => $account,
+                'password' => $password,
+                'email' => $email,
+            ]);
+//            $admin = Admin::query()->find(1);
 
             foreach ($role_ids as $role_id) {
-                $role = Roles::query()->firstOrFail($role_id);
-//                return $role['name'];
-                $admin->assignRole($role['name']);
+                $role = Roles::query()->find($role_id);
+                $role_name = $role['name'];
+                $admin->assignRole($role_name);
+                $permissions = $role->getAllPermissions();
+                if($permissions){
+                    foreach ($permissions as $permission) {
+                        $admin->givePermissionTo($permission['name']);
+                    }
+                }
             }
+
+            return 'success';
         }
 
-        return view('admin.role.add',compact('roles'));
+        return view('admin.admin.add',compact('roles'));
     }
 }
