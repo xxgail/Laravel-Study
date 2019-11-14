@@ -46,9 +46,15 @@ Route::group([
 
 Route::group([
     'middleware' => 'adminLoginAuth',
+    'namespace' => 'Admin',
 ],function(){
     Route::group([
-        'namespace' => 'Admin',
+        'prefix' => 'login',
+    ],function (\Illuminate\Routing\Router $router){
+        $router->any('logout','LoginController@logout')->name('login.logout');
+    });
+
+    Route::group([
         'prefix' => 'admin',
     ],function (\Illuminate\Routing\Router $router){
         $router->any('list','AdminController@list')->name('admin.list');
@@ -57,7 +63,6 @@ Route::group([
 
 
     Route::group([
-        'namespace' => 'Admin',
         'prefix' => 'role',
     ],function (\Illuminate\Routing\Router $router){
         $router->any('list','RoleController@list')->name('role.list');
@@ -66,7 +71,6 @@ Route::group([
     });
 
     Route::group([
-        'namespace' => 'Admin',
         'prefix' => 'permission',
     ],function (\Illuminate\Routing\Router $router){
         $router->any('list','PermissionController@list')->name('permission.list');
@@ -75,11 +79,11 @@ Route::group([
 
 
     Route::group([
-        'namespace' => 'Student',
         'prefix' => 'student',
     ],function (\Illuminate\Routing\Router $router){
-        $router->any('list','StudentController@list');
-        $router->any('add','StudentController@add');
+        $router->any('list','StudentController@list')->name('student.list');
+        $router->any('add','StudentController@add')->name('student.add');
+        $router->any('edit/{id?}','StudentController@edit')->name('student.edit');
     });
 });
 

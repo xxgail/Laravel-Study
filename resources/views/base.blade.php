@@ -16,17 +16,10 @@
             <div class="sidebar-collapse" style="width: auto; height: 100%;">
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
-                        <div class="dropdown profile-element open">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="true">
-                    <span class="clear">
-                    <span class="block m-t-xs" style="font-size:20px;">
-                    <strong class="font-bold"></strong>
-                    </span>
-                    </span>
-                            </a>
-                        </div>
-                        <div class="logo-element">
-                        </div>
+                        <a class="J_menuItem" href="{{route('login.logout')}}">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">退出登录！</span>
+                        </a>
                     </li>
 
                     <li>
@@ -54,6 +47,13 @@
                         <a class="J_menuItem" href="{{route('permission.list')}}">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">权限</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="J_menuItem" href="{{route('student.list')}}">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">学生</span>
                         </a>
                     </li>
 

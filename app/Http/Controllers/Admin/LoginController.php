@@ -37,4 +37,13 @@ class LoginController extends Controller
 
         return view('admin.login');
     }
+
+    public function logout(Request $request){
+        if($request->session()->has('is_login')){
+            $request->session()->flush();
+            return redirect()->route('login.login');
+        }
+
+//        return redirect()->route('login.login');
+    }
 }
